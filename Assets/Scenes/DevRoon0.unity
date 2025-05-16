@@ -991,6 +991,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PM: {fileID: 0}
   BlockInput: 0
+  CanGoThroughDoors: 1
 --- !u!1 &1183298775
 GameObject:
   m_ObjectHideFlags: 0
@@ -1366,7 +1367,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919995009871315901, guid: 2a0bb604d7bf1ea47ad6b8becf17bf91, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.06
+      value: -3.16
       objectReference: {fileID: 0}
     - target: {fileID: 919995009871315901, guid: 2a0bb604d7bf1ea47ad6b8becf17bf91, type: 3}
       propertyPath: m_LocalPosition.z

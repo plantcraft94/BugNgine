@@ -27,6 +27,6 @@ public class Door : MonoBehaviour
 	}
 	public void TpPlayer(GameObject player)
 	{
-		player.transform.position = transform.position;
+		player.transform.position = TpLocation.position;
 	}
 }

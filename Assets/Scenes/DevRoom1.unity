@@ -1675,7 +1675,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2085906359963329652, guid: 0250843a2c1008c489ef1ecea6744672, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[3].x
-      value: -20.11901
+      value: -19.219307
       objectReference: {fileID: 0}
     - target: {fileID: 2085906359963329652, guid: 0250843a2c1008c489ef1ecea6744672, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[3].y
@@ -1683,7 +1683,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2085906359963329652, guid: 0250843a2c1008c489ef1ecea6744672, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[4].x
-      value: -20.11901
+      value: -19.219307
       objectReference: {fileID: 0}
     - target: {fileID: 2085906359963329652, guid: 0250843a2c1008c489ef1ecea6744672, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[4].y
@@ -1731,7 +1731,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2085906359963329652, guid: 0250843a2c1008c489ef1ecea6744672, type: 3}
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[0].Array.data[1].X
-      value: -201190112
+      value: -192193072
       objectReference: {fileID: 0}
     - target: {fileID: 2085906359963329652, guid: 0250843a2c1008c489ef1ecea6744672, type: 3}
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[0].Array.data[1].Y
@@ -1739,7 +1739,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2085906359963329652, guid: 0250843a2c1008c489ef1ecea6744672, type: 3}
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[0].Array.data[2].X
-      value: -201190112
+      value: -192193072
       objectReference: {fileID: 0}
     - target: {fileID: 2085906359963329652, guid: 0250843a2c1008c489ef1ecea6744672, type: 3}
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[0].Array.data[2].Y
@@ -1791,7 +1791,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6052752572781353971, guid: 0250843a2c1008c489ef1ecea6744672, type: 3}
       propertyPath: m_Size.x
-      value: 77.2155
+      value: 76.315796
       objectReference: {fileID: 0}
     - target: {fileID: 6052752572781353971, guid: 0250843a2c1008c489ef1ecea6744672, type: 3}
       propertyPath: m_Size.y
@@ -1799,7 +1799,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6052752572781353971, guid: 0250843a2c1008c489ef1ecea6744672, type: 3}
       propertyPath: m_Offset.x
-      value: 18.488739
+      value: 18.938591
       objectReference: {fileID: 0}
     - target: {fileID: 6052752572781353971, guid: 0250843a2c1008c489ef1ecea6744672, type: 3}
       propertyPath: m_Offset.y
@@ -2933,10 +2933,6 @@ PrefabInstance:
     - target: {fileID: 1559826047680721999, guid: 2a0bb604d7bf1ea47ad6b8becf17bf91, type: 3}
       propertyPath: m_Name
       value: Door
-      objectReference: {fileID: 0}
-    - target: {fileID: 6155734083573399438, guid: 2a0bb604d7bf1ea47ad6b8becf17bf91, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.02
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

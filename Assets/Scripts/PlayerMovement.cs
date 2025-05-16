@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
 	CameraFollowObject cameraFollowObject;
 	GameObject CameraFollowObject;
 	float _fallSpeedYDampingChangeThreshold;
-	
+
 	[Header("Transition")]
 	[SerializeField] float TransitionJumpForce;
 
@@ -174,25 +174,22 @@ public class PlayerMovement : MonoBehaviour
 	}
 	public IEnumerator TransitionMove()
 	{
-		if(isGrounded)
+		if (IsFacingRight)
 		{
-			if (IsFacingRight)
-			{
-				rb.linearVelocity = new Vector2(1 * speed, rb.linearVelocity.y);
-			}
-			else
-			{
-				rb.linearVelocity = new Vector2(-1 * speed, rb.linearVelocity.y);
-			}
+			rb.linearVelocity = new Vector2(1 * speed, rb.linearVelocity.y);
+		}
+		else
+		{
+			rb.linearVelocity = new Vector2(-1 * speed, rb.linearVelocity.y);
 		}
 		yield return new WaitUntil(() => Player.Instance.BlockInput == false);
 	}
-	
+
 	public IEnumerator TransitionJump()
 	{
 		if (IsFacingRight)
 		{
-			rb.linearVelocity = new Vector2(1 * speed,TransitionJumpForce);
+			rb.linearVelocity = new Vector2(1 * speed, TransitionJumpForce);
 		}
 		else
 		{
@@ -205,5 +202,5 @@ public class PlayerMovement : MonoBehaviour
 		rb.linearVelocity = Vector2.zero;
 		yield return new WaitUntil(() => Player.Instance.BlockInput == false);
 	}
-	
+
 }
