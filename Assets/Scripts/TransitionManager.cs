@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class TransitionManager : MonoBehaviour
 {
+	private static readonly int DoTransition = Animator.StringToHash("DoTransition");
 	public static TransitionManager Instance {get;set;}
 	Animator anim;
 	string DoorID; 
@@ -28,7 +29,7 @@ public class TransitionManager : MonoBehaviour
 		DoorID = doorID;
 		Scene1 = scene1;
 		Scene2 = scene2;
-		anim.SetTrigger("DoTransition");
+		anim.SetTrigger(DoTransition);
 	}
 	public void FinishTransition()
 	{

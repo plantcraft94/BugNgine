@@ -992,6 +992,7 @@ MonoBehaviour:
   PM: {fileID: 0}
   BlockInput: 0
   CanGoThroughDoors: 1
+  test: 0
 --- !u!1 &1183298775
 GameObject:
   m_ObjectHideFlags: 0
@@ -1404,6 +1405,10 @@ PrefabInstance:
     - target: {fileID: 1559826047680721999, guid: 2a0bb604d7bf1ea47ad6b8becf17bf91, type: 3}
       propertyPath: m_Name
       value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207962238342782278, guid: 2a0bb604d7bf1ea47ad6b8becf17bf91, type: 3}
+      propertyPath: HorizontalDooor
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

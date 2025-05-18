@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 	public PlayerMovement PM;
 	public bool BlockInput = false;
 	public bool CanGoThroughDoors = true;
+	public bool test;
 	private void Awake()
 	{
 		if (Instance == null)
@@ -22,6 +23,14 @@ public class Player : MonoBehaviour
 	private void Start()
 	{
 		PM = GetComponent<PlayerMovement>();
+	}
+	private void Update()
+	{
+		if(test)
+		{
+			BlockInput = true;
+			startTransition(true, false);
+		}
 	}
 	public void startTransition(bool HorizontalDooor, bool UpDoor)
 	{

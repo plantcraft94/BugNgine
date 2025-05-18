@@ -1,4 +1,9 @@
 using UnityEngine;
+#if UNITY_EDITOR
+using Physics2D = Nomnom.RaycastVisualization.VisualPhysics2D;
+#else
+using Physics2D = UnityEngine.Physics2D;
+#endif
 
 public class Door : MonoBehaviour
 {
@@ -7,13 +12,11 @@ public class Door : MonoBehaviour
 	[Header("Type")]
 	[SerializeField] bool HorizontalDooor;
 	[SerializeField] bool UpDoor;
+	[SerializeField] LayerMask groundLayer;
 	private void Awake()
 	{
 		gameObject.name = data.DoorID;
-	}
-	private void Start()
-	{
-
+		TpLocation.position = Physics2D.Raycast(transform.position, Vector2.down, 10f, groundLayer).point;
 	}
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
