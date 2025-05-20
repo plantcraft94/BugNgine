@@ -66,14 +66,15 @@ public class GameManager : MonoBehaviour
 
 	public void LoadNextRoom(string DoorID, Object Scene1, Object Scene2)
 	{
+		Debug.Log("test");
 		TransitionDoorID = DoorID;
 		if (Scene1.name == currentSceneName)
 		{
-			SceneManager.LoadScene(Scene2.name, LoadSceneMode.Single);
+			SceneManager.LoadScene(Scene2.name);
 		}
 		else if (Scene2.name == currentSceneName)
 		{
-			SceneManager.LoadScene(Scene1.name, LoadSceneMode.Single);
+			SceneManager.LoadScene(Scene1.name);
 		}
 	}
 }

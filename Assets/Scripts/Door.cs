@@ -10,13 +10,16 @@ public class Door : MonoBehaviour
 	[SerializeField] DoorData data;
 	[SerializeField] Transform TpLocation;
 	[Header("Type")]
-	[SerializeField] bool HorizontalDooor;
+	[SerializeField] bool HorizontalDoor;
 	[SerializeField] bool UpDoor;
 	[SerializeField] LayerMask groundLayer;
 	private void Awake()
 	{
 		gameObject.name = data.DoorID;
-		TpLocation.position = Physics2D.Raycast(transform.position, Vector2.down, 10f, groundLayer).point;
+		if(HorizontalDoor)
+		{
+			TpLocation.position = Physics2D.Raycast(transform.position, Vector2.down, 10f, groundLayer).point;
+		}
 	}
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
@@ -25,7 +28,7 @@ public class Door : MonoBehaviour
 			Player.Instance.BlockInput = true;
 			Player.Instance.CanGoThroughDoors = false;
 			TransitionManager.Instance.StartTransition(data.DoorID, data.scene1, data.scene2);
-			Player.Instance.startTransition(HorizontalDooor, UpDoor);
+			Player.Instance.startTransition(HorizontalDoor, UpDoor);
 		}
 	}
 	public void TpPlayer(GameObject player)

@@ -30,9 +30,11 @@ public class TransitionManager : MonoBehaviour
 		Scene1 = scene1;
 		Scene2 = scene2;
 		anim.SetTrigger(DoTransition);
+		Debug.Log($"{DoorID} {Scene1} {Scene2}");
 	}
 	public void FinishTransition()
 	{
+		Debug.Log("Loading");
 		GameManager.Instance.LoadNextRoom(DoorID,Scene1,Scene2);
 	}
 }
