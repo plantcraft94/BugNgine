@@ -10,10 +10,11 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-	Rigidbody2D rb;
+	public Rigidbody2D rb;
 	public float movement;
+	public float LookUpDown;
 	public float speed;
-	bool isGrounded;
+	public bool isGrounded;
 	public LayerMask groundLayer;
 	[SerializeField] Transform groundCheck;
 	private bool jumpInput;
@@ -33,8 +34,9 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] private float fallMultiplier = 1.5f;
 
 	[Header("Input")]
-	InputAction moveAction;
-	InputAction jumpAction;
+	public InputAction moveAction;
+	public InputAction jumpAction;
+	public InputAction lookUpDownAction;
 
 	[Header("Camera")]
 	CameraFollowObject cameraFollowObject;
@@ -50,6 +52,8 @@ public class PlayerMovement : MonoBehaviour
 		rb = GetComponent<Rigidbody2D>();
 		moveAction = InputSystem.actions.FindAction("Move");
 		jumpAction = InputSystem.actions.FindAction("Jump");
+		lookUpDownAction = InputSystem.actions.FindAction("LookUpDown");
+		
 		CameraFollowObject = GameObject.Find("CameraFollowObject");
 		cameraFollowObject = CameraFollowObject.GetComponent<CameraFollowObject>();
 		_fallSpeedYDampingChangeThreshold = CameraManager.instance._fallSpeedYDampingChangeThreshold;
@@ -61,8 +65,9 @@ public class PlayerMovement : MonoBehaviour
 		if (!Player.Instance.BlockInput)
 		{
 			InputManager();
+			rb.linearVelocity = new Vector2(movement * speed, rb.linearVelocity.y);
 		}
-		isGrounded = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(1f, 0.1f), CapsuleDirection2D.Horizontal, 0, groundLayer);
+		isGrounded = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.72f, 0.1f), CapsuleDirection2D.Horizontal, 0, groundLayer);
 		if (isGrounded == true)
 		{
 			cayoteTimeLength = 0.1f;
@@ -100,7 +105,6 @@ public class PlayerMovement : MonoBehaviour
 		{
 			rb.gravityScale = gravityScale;
 		}
-		rb.linearVelocity = new Vector2(movement * speed, rb.linearVelocity.y);
 		// Process jump in the FixedUpdate method
 		if (jumpBuffer == true)
 		{
@@ -165,12 +169,14 @@ public class PlayerMovement : MonoBehaviour
 	void InputManager()
 	{
 		movement = moveAction.ReadValue<float>();
+		LookUpDown = lookUpDownAction.ReadValue<float>();
 		if (jumpAction.WasPressedThisFrame())
 		{
 			jumpBuffer = true;
 			jumpBufferTimer = jumpBufferLength;
 			jumpInput = true;
 		}
+		
 	}
 	public IEnumerator TransitionMove()
 	{
