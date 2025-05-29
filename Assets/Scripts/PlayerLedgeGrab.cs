@@ -50,9 +50,6 @@ public class PlayerLedgeGrab : MonoBehaviour
 			}
 			if (SnapPlayer)
 			{
-				Debug.Log(rb.linearVelocityX);
-				Debug.Log("Snapped" + PM.IsFacingRight);
-				
 				if (PM.IsFacingRight)
 				{
 					rb.linearVelocity = new Vector2(rb.linearVelocityX + 500f * 1, rb.linearVelocityY);
@@ -62,20 +59,19 @@ public class PlayerLedgeGrab : MonoBehaviour
 				{
 					rb.linearVelocity = new Vector2(rb.linearVelocityX + 500f * -1, rb.linearVelocityY);
 				}
-				Debug.Log(rb.linearVelocityX);
 			}
 
 		}
 		if (GrabInput)
 		{
 
-			if (PM.lookUpDownAction.ReadValue<float>() == 1||((PM.moveAction.ReadValue<float>() == 1 && PM.IsFacingRight) || (PM.moveAction.ReadValue<float>() == -1 && !PM.IsFacingRight)))
+			if (Mathf.Approximately(PM.lookUpDownAction.ReadValue<float>(), 1f)||((Mathf.Approximately(PM.moveAction.ReadValue<float>(), 1f) && PM.IsFacingRight) || (Mathf.Approximately(PM.moveAction.ReadValue<float>(), -1f) && !PM.IsFacingRight)))
 			{
 				
 				anim.SetTrigger("Climb");
 	   
 			}
-			else if (PM.lookUpDownAction.ReadValue<float>() == -1 && PM.jumpAction.WasPressedThisFrame())
+			else if (Mathf.Approximately(PM.lookUpDownAction.ReadValue<float>(), -1) && PM.jumpAction.WasPressedThisFrame())
 			{
 				isGrab = false;
 				LedgeGrabObject.SetActive(false);

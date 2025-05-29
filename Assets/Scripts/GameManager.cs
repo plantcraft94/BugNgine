@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
 	private void Start()
 	{
 		player = GameObject.FindGameObjectWithTag("Player");
+	    FinishTransition(0.5f);
+
 	}
 	void OnEnable()
 	{
@@ -52,10 +54,17 @@ public class GameManager : MonoBehaviour
 			// Reset the ID after handling the transition
 			TransitionDoorID = null;
 		}
-		Tween.Delay(0.5f, () => { Player.Instance.CanGoThroughDoors = true; Player.Instance.BlockInput = false; });
 
 	}
-	void OnDisable()
+
+    public void FinishTransition(float delay)
+    {
+        Tween.Delay(delay, () => { Player.Instance.CanGoThroughDoors = true; Player.Instance.BlockInput = false;
+                                  LoadedLevel = false;
+        });
+    }
+
+    void OnDisable()
 	{
 		SceneManager.sceneLoaded -= OnSceneLoaded;
 	}
