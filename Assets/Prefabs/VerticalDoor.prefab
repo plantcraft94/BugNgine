@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8822261163191214287}
   - component: {fileID: 7770990020163672818}
   m_Layer: 0
-  m_Name: UpDoor
+  m_Name: VerticalDoor
   m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

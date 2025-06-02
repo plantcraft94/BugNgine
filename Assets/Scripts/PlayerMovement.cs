@@ -33,19 +33,27 @@ public class PlayerMovement : MonoBehaviour
     public float gravityScale = 1f;
     [SerializeField] private float fallMultiplier = 1.5f;
 
-    [Header("Input")]
-    public InputAction moveAction;
-    public InputAction jumpAction;
-    public InputAction lookUpDownAction;
 
     [Header("Camera")]
     CameraFollowObject cameraFollowObject;
     GameObject CameraFollowObject;
     float _fallSpeedYDampingChangeThreshold;
 
+    [Header("Dash")]
+    [SerializeField] private bool canDash = true;
+    [SerializeField] private bool isDashing = false;
+    [SerializeField] private float dashForce;
+    [SerializeField] private float dashingTime;
+    [SerializeField] private float dashCoolDown;
+
     [Header("Transition")]
     [SerializeField] float TransitionJumpForce;
 
+    [Header("Input")]
+    public InputAction moveAction;
+    public InputAction jumpAction;
+    public InputAction lookUpDownAction;
+    public InputAction dashAction;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
         moveAction = InputSystem.actions.FindAction("Move");
         jumpAction = InputSystem.actions.FindAction("Jump");
         lookUpDownAction = InputSystem.actions.FindAction("LookUpDown");
+        dashAction = InputSystem.actions.FindAction("Dash");
 
         CameraFollowObject = GameObject.Find("CameraFollowObject");
         cameraFollowObject = CameraFollowObject.GetComponent<CameraFollowObject>();
@@ -62,6 +71,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isDashing)
+        {
+            return;
+        }
+        isGrounded = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.72f, 0.1f), CapsuleDirection2D.Horizontal, 0, groundLayer);
         if (!Player.Instance.BlockInput)
         {
             InputManager();
@@ -73,8 +87,11 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
             rb.linearVelocity = new Vector2(movement * speed, rb.linearVelocity.y);
+            if (Player.Instance.HasDash)
+            {
+                Dash();
+            }
         }
-        isGrounded = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.72f, 0.1f), CapsuleDirection2D.Horizontal, 0, groundLayer);
         if (isGrounded == true)
         {
             cayoteTimeLength = 0.1f;
@@ -139,11 +156,52 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (isDashing)
+        {
+            return;
+        }
         if (movement != 0)
         {
             TurnCheck();
         }
     }
+
+    void Dash()
+    {
+        if (!canDash)
+        {
+            dashCoolDown -= Time.deltaTime;
+        }
+        if (dashCoolDown <= 0 && isGrounded)
+        {
+            canDash = true;
+        }
+
+        if (dashAction.WasPressedThisFrame() && canDash)
+        {
+            isDashing = true;
+            StartCoroutine(Dashing());
+        }
+    }
+
+    IEnumerator Dashing()
+    {
+        canDash = false;
+        dashCoolDown = 0.2f;
+        gravityScale = 0f;
+        if (IsFacingRight)
+        {
+            rb.linearVelocity = new Vector2(1 * dashForce, 0f);
+        }
+        else
+        {
+            rb.linearVelocity = new Vector2(-1 * dashForce, 0f);
+        }
+        yield return new WaitForSeconds(dashingTime);
+        gravityScale = 1f;
+        isDashing = false;
+    }
+
     void TurnCheck()
     {
         if (movement > 0 && !IsFacingRight)

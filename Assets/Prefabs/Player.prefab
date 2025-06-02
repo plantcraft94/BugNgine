@@ -250,6 +250,7 @@ MonoBehaviour:
   BlockInput: 0
   CanGoThroughDoors: 1
   test: 0
+  HasDash: 1
 --- !u!114 &6574172188222110650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,6 +279,12 @@ MonoBehaviour:
   cayoteTimeLength: 0.1
   gravityScale: 1
   fallMultiplier: 2
+  canDash: 1
+  isDashing: 0
+  dashForce: 24
+  dashingTime: 0.2
+  dashCoolDown: 0.2
+  TransitionJumpForce: 10
   moveAction:
     m_Name: Move
     m_Type: 0
@@ -305,7 +312,15 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
-  TransitionJumpForce: 10
+  dashAction:
+    m_Name: Dash
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: ebb6774f-f722-4f6b-b82e-eb1ec9a52db3
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!95 &160017342205817850
 Animator:
   serializedVersion: 7

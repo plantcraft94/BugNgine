@@ -15,6 +15,9 @@ public class Player : MonoBehaviour
 	public bool test;
 	Animator anim;
 	Rigidbody2D rb;
+	[Header("Abilities")]
+	public bool HasDash;
+
 	private void Awake()
 	{
 		if (Instance == null)
