@@ -16,9 +16,10 @@ public class Door : MonoBehaviour
 	private void Awake()
 	{
 		gameObject.name = data.DoorID;
-		if(HorizontalDoor)
+		if (HorizontalDoor)
 		{
-			TpLocation.position = Physics2D.Raycast(transform.position, Vector2.down, 10f, groundLayer).point;
+			var position = Physics2D.Raycast(transform.position, Vector2.down, 10f, groundLayer).point;
+			TpLocation.position = new Vector2(position.x, position.y + 1.176f);
 		}
 	}
 	private void OnTriggerEnter2D(Collider2D collision)

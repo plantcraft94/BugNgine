@@ -183,6 +183,14 @@ PrefabInstance:
       propertyPath: HorizontalDooor
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6155734083573399438, guid: 2a0bb604d7bf1ea47ad6b8becf17bf91, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6155734083573399438, guid: 2a0bb604d7bf1ea47ad6b8becf17bf91, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1277,11 +1285,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 746686099065929301, guid: de2f58379bfd90c41837be507509eab3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 2.21
       objectReference: {fileID: 0}
     - target: {fileID: 746686099065929301, guid: de2f58379bfd90c41837be507509eab3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -3.4839997
       objectReference: {fileID: 0}
     - target: {fileID: 746686099065929301, guid: de2f58379bfd90c41837be507509eab3, type: 3}
       propertyPath: m_LocalPosition.z
