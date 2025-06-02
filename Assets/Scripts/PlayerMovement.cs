@@ -187,7 +187,7 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator Dashing()
     {
         canDash = false;
-        dashCoolDown = 0.2f;
+        dashCoolDown = 0.3f;
         gravityScale = 0f;
         if (IsFacingRight)
         {
