@@ -1323,14 +1323,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6574172188222110650, guid: de2f58379bfd90c41837be507509eab3, type: 3}
-      propertyPath: dashForce
-      value: 28
-      objectReference: {fileID: 0}
-    - target: {fileID: 6574172188222110650, guid: de2f58379bfd90c41837be507509eab3, type: 3}
-      propertyPath: dashingTime
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 6670084239895139475, guid: de2f58379bfd90c41837be507509eab3, type: 3}
       propertyPath: m_Name
       value: Player

@@ -3,11 +3,13 @@ using PrimeTween;
 
 public class Player : MonoBehaviour
 {
-    private static readonly int IsGrounded = Animator.StringToHash("IsGrounded");
-    private static readonly int YVelocity = Animator.StringToHash("yVelocity");
-    private static readonly int IsMoving = Animator.StringToHash("IsMoving");
-    private static readonly int IsLedgeGrab = Animator.StringToHash("isLedgeGrab");
-    public static Player Instance{get;set;}
+	private static readonly int IsGrounded = Animator.StringToHash("IsGrounded");
+	private static readonly int YVelocity = Animator.StringToHash("yVelocity");
+	private static readonly int IsMoving = Animator.StringToHash("IsMoving");
+	private static readonly int IsLedgeGrab = Animator.StringToHash("isLedgeGrab");
+	
+	private static readonly int isDashing = Animator.StringToHash("isDashing");
+	public static Player Instance{get;set;}
 	public PlayerMovement PM;
 	PlayerLedgeGrab PLG;
 	public bool BlockInput = false;
@@ -46,8 +48,9 @@ public class Player : MonoBehaviour
 	{
 		anim.SetBool(IsGrounded,PM.isGrounded);
 		anim.SetFloat(YVelocity,rb.linearVelocityY);
-		anim.SetBool(IsMoving, PM.movement != 0);
+		anim.SetBool(IsMoving, PM.movement != 0 || (BlockInput && rb.linearVelocity.x != 0));
 		anim.SetBool(IsLedgeGrab, PLG.isGrab);
+		anim.SetBool(isDashing, PM.isDashing);
 	}
 	public void startTransition(bool HorizontalDooor, bool UpDoor)
 	{
@@ -57,7 +60,7 @@ public class Player : MonoBehaviour
 		}
 		else if(!HorizontalDooor && UpDoor)
 		{
-            StartCoroutine(PM.TransitionJump());
+			StartCoroutine(PM.TransitionJump());
 		}
 		else if (!HorizontalDooor && !UpDoor)
 		{

@@ -281,8 +281,8 @@ MonoBehaviour:
   fallMultiplier: 2
   canDash: 1
   isDashing: 0
-  dashForce: 30
-  dashingTime: 0.2
+  dashForce: 28
+  dashingTime: 0.25
   dashCoolDown: 0.3
   TransitionJumpForce: 10
   moveAction:

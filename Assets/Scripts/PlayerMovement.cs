@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Dash")]
     [SerializeField] private bool canDash = true;
-    [SerializeField] private bool isDashing = false;
+    public bool isDashing = false;
     [SerializeField] private float dashForce;
     [SerializeField] private float dashingTime;
     [SerializeField] private float dashCoolDown;
