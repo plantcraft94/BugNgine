@@ -286,5 +286,4 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitUntil(() => Player.Instance.BlockInput == false);
         GameManager.Instance.LoadedLevel = false;
     }
-
 }

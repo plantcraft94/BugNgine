@@ -54,6 +54,10 @@ public class Player : MonoBehaviour
 	}
 	public void startTransition(bool HorizontalDooor, bool UpDoor)
 	{
+		if (PM.isDashing)
+		{
+			PM.isDashing = false;
+		}
 		if(HorizontalDooor && !UpDoor)
 		{
 			StartCoroutine(PM.TransitionMove());
