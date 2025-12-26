@@ -23,11 +23,11 @@ public class GameManager : MonoBehaviour
 			Destroy(gameObject);
 			return;
 		}
+		player = GameObject.FindGameObjectWithTag("Player");
 	}
 	private void Start()
 	{
-		player = GameObject.FindGameObjectWithTag("Player");
-	    FinishTransition(0.5f);
+		FinishTransition(0.5f);
 
 	}
 	void OnEnable()
@@ -54,17 +54,18 @@ public class GameManager : MonoBehaviour
 			// Reset the ID after handling the transition
 			TransitionDoorID = null;
 		}
+		Player.Instance.PLG.canGrab = true;
 
 	}
 
-    public void FinishTransition(float delay)
-    {
-        Tween.Delay(delay, () => { Player.Instance.CanGoThroughDoors = true; Player.Instance.BlockInput = false;
-                                  LoadedLevel = false;
-        });
-    }
+	public void FinishTransition(float delay)
+	{
+		Tween.Delay(delay, () => { Player.Instance.CanGoThroughDoors = true; Player.Instance.BlockInput = false;
+								  LoadedLevel = false;
+		});
+	}
 
-    void OnDisable()
+	void OnDisable()
 	{
 		SceneManager.sceneLoaded -= OnSceneLoaded;
 	}

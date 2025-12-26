@@ -7,6 +7,7 @@ using Physics2D = UnityEngine.Physics2D;
 
 public class PlayerLedgeGrab : MonoBehaviour
 {
+	public bool canGrab = true;
 	public bool isGrab;
 	public Transform Check1;
 	public Transform Check2;
@@ -20,7 +21,7 @@ public class PlayerLedgeGrab : MonoBehaviour
 	public bool GrabInput = false;
 
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
-	private void Start()
+	private void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
 		PM = GetComponent<PlayerMovement>();
@@ -34,7 +35,7 @@ public class PlayerLedgeGrab : MonoBehaviour
 		RaycastHit2D hit1 = Physics2D.Raycast(Check1.position, Check1.right, 1f * RayMultiplier, groundLayer);
 		RaycastHit2D hit2 = Physics2D.Raycast(Check2.position, Check2.right, 1f * RayMultiplier, groundLayer);
 
-		if (!hit1 && hit2  && !PM.isGrounded)
+		if (!hit1 && hit2  && !PM.isGrounded && canGrab)
 		{
 			isGrab = true;
 			LedgeGrabObject.SetActive(true);
@@ -71,7 +72,7 @@ public class PlayerLedgeGrab : MonoBehaviour
 				anim.SetTrigger("Climb");
 	   
 			}
-			else if (Mathf.Approximately(PM.lookUpDownAction.ReadValue<float>(), -1) && PM.jumpAction.WasPressedThisFrame())
+			else if ((Mathf.Approximately(PM.lookUpDownAction.ReadValue<float>(), -1) && PM.jumpAction.WasPressedThisFrame())||!canGrab)
 			{
 				isGrab = false;
 				LedgeGrabObject.SetActive(false);

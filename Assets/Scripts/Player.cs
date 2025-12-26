@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
 	private static readonly int isDashing = Animator.StringToHash("isDashing");
 	public static Player Instance{get;set;}
 	public PlayerMovement PM;
-	PlayerLedgeGrab PLG;
+	public PlayerLedgeGrab PLG;
 	public bool BlockInput = false;
 	public bool CanGoThroughDoors = true;
 	public bool test;
@@ -32,15 +32,16 @@ public class Player : MonoBehaviour
 			Destroy(gameObject);
 			return;
 		}
-	}
-	private void Start()
-	{
 		anim = GetComponent<Animator>();
 		PM = GetComponent<PlayerMovement>();
 		rb = GetComponent<Rigidbody2D>();
 		PLG = GetComponent<PlayerLedgeGrab>();
 	}
-	private void Update()
+	private void Start()
+	{
+		
+	}
+	private void LateUpdate()
 	{
 		AnimatePlayer();
 	}

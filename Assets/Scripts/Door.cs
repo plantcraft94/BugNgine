@@ -27,6 +27,7 @@ public class Door : MonoBehaviour
 		if (collision.gameObject.CompareTag("Player") && Player.Instance.CanGoThroughDoors)
 		{
 			Player.Instance.BlockInput = true;
+			Player.Instance.PLG.canGrab = false;
 			Player.Instance.CanGoThroughDoors = false;
 			TransitionManager.Instance.StartTransition(data.DoorID, data.scene1, data.scene2);
 			Player.Instance.startTransition(HorizontalDoor, UpDoor);
