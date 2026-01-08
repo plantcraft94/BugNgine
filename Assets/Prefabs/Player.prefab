@@ -108,6 +108,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6229194567472105509
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -126,6 +127,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -147,19 +150,20 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 3349029779433726592, guid: c561a633b0aaf054cbe9a3e1217d693a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 1, y: 2.125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &8817825269641647381
 Rigidbody2D:
@@ -227,7 +231,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.50000006, y: 0.5441176}
     oldSize: {x: 1, y: 2.125}
-    newSize: {x: 1, y: 2}
+    newSize: {x: 1, y: 2.125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -247,10 +251,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PM: {fileID: 0}
+  PLG: {fileID: 0}
   BlockInput: 0
   CanGoThroughDoors: 1
   test: 0
-  HasDash: 1
+  NoSword: {fileID: 9100000, guid: e9f679b0bf20d3242bc06192a422f343, type: 2}
+  Sword: {fileID: 9100000, guid: fefd54b55a6b838409059a4ceb86b27b, type: 2}
 --- !u!114 &6574172188222110650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,7 +278,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   groundCheck: {fileID: 4044028122276738497}
-  jumpForce: 15
+  jumpForce: 18
   IsFacingRight: 1
   jumpBufferLength: 0.2
   jumpBufferTimer: 0
@@ -284,7 +290,7 @@ MonoBehaviour:
   dashForce: 28
   dashingTime: 0.25
   dashCoolDown: 0.3
-  TransitionJumpForce: 10
+  TransitionJumpForce: 13
   moveAction:
     m_Name: Move
     m_Type: 0
@@ -355,6 +361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e7dd9bbfbec4f4c8c1782688bc803b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canGrab: 1
   isGrab: 0
   Check1: {fileID: 5889918476162764477}
   Check2: {fileID: 1368728429686264645}
@@ -366,13 +373,13 @@ MonoBehaviour:
   GrabInput: 0
 --- !u!96 &6439697178942366773
 TrailRenderer:
-  serializedVersion: 3
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6670084239895139475}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -385,6 +392,8 @@ TrailRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -406,9 +415,11 @@ TrailRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Time: 5
   m_PreviewTimeScale: 1
   m_Parameters:
@@ -467,7 +478,6 @@ TrailRenderer:
     shadowBias: 0.5
     generateLightingData: 0
   m_MinVertexDistance: 0.1
-  m_MaskInteraction: 0
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1

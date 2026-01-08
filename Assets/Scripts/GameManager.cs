@@ -1,16 +1,16 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using PrimeTween;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
-	public static GameManager Instance { get; set; }
-
-	string TransitionDoorID;
-	string currentSceneName;
-	GameObject player;
-	public bool LoadedLevel;
-
+	public static GameManager Instance { get; private set; }
+	
+	[Header("Abilities")]
+	public bool HasDash = false;
+	public bool HasSword = false;
+	
+	
+	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	private void Awake()
 	{
 		if (Instance == null)
@@ -23,68 +23,22 @@ public class GameManager : MonoBehaviour
 			Destroy(gameObject);
 			return;
 		}
-		player = GameObject.FindGameObjectWithTag("Player");
 	}
-	private void Start()
+	void Start()
 	{
-		FinishTransition(0.5f);
 
 	}
-	void OnEnable()
+
+	// Update is called once per frame
+	void Update()
 	{
-		SceneManager.sceneLoaded += OnSceneLoaded;
-	}
-	void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-	{
-		currentSceneName = scene.name;
-		Debug.Log($"{currentSceneName} finish loaded");
-		CameraManager.instance.RelocateBound();
-		CameraManager.instance.ResetCam();
-		LoadedLevel = true;
-		// Only search for the transition door if we have a valid ID
-		if (!string.IsNullOrEmpty(TransitionDoorID))
+		if(Keyboard.current.wKey.wasPressedThisFrame)
 		{
-			// Find the specific door directly by name rather than getting all doors first
-			GameObject door = GameObject.Find(TransitionDoorID);
-			if (door != null && door.CompareTag("Door"))
-			{
-				door.GetComponent<Door>().TpPlayer(player);
-			}
-
-			// Reset the ID after handling the transition
-			TransitionDoorID = null;
+			ObtainSword();
 		}
-		Player.Instance.PLG.canGrab = true;
-
 	}
-
-	public void FinishTransition(float delay)
+	public void ObtainSword()
 	{
-		Tween.Delay(delay, () => { Player.Instance.CanGoThroughDoors = true; Player.Instance.BlockInput = false;
-								  LoadedLevel = false;
-		});
-	}
-
-	void OnDisable()
-	{
-		SceneManager.sceneLoaded -= OnSceneLoaded;
-	}
-	private void OnDestroy()
-	{
-		SceneManager.sceneLoaded -= OnSceneLoaded;
-	}
-
-	public void LoadNextRoom(string DoorID, Object Scene1, Object Scene2)
-	{
-		Debug.Log("test");
-		TransitionDoorID = DoorID;
-		if (Scene1.name == currentSceneName)
-		{
-			SceneManager.LoadScene(Scene2.name);
-		}
-		else if (Scene2.name == currentSceneName)
-		{
-			SceneManager.LoadScene(Scene1.name);
-		}
+		Player.Instance.SwordAnimation();
 	}
 }

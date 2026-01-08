@@ -35,6 +35,6 @@ public class TransitionManager : MonoBehaviour
 	public void FinishTransition()
 	{
 		Debug.Log("Loading");
-		GameManager.Instance.LoadNextRoom(DoorID,Scene1,Scene2);
+		RoomChangeManager.Instance.LoadNextRoom(DoorID,Scene1,Scene2);
 	}
 }

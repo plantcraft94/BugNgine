@@ -17,8 +17,12 @@ public class Player : MonoBehaviour
 	public bool test;
 	Animator anim;
 	Rigidbody2D rb;
-	[Header("Abilities")]
-	public bool HasDash;
+	
+	[Header("Animations")]
+	[SerializeField] RuntimeAnimatorController NoSword;
+	[SerializeField] RuntimeAnimatorController Sword;
+	
+	
 
 	private void Awake()
 	{
@@ -39,11 +43,15 @@ public class Player : MonoBehaviour
 	}
 	private void Start()
 	{
-		
+		//anim.runtimeAnimatorController = Sword;
 	}
-	private void LateUpdate()
+	private void Update()
 	{
 		AnimatePlayer();
+	}
+	public void SwordAnimation()
+	{
+		anim.runtimeAnimatorController = Sword;
 	}
 	void AnimatePlayer()
 	{

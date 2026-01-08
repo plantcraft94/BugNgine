@@ -91,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
 				}
 			}
 			rb.linearVelocity = new Vector2(movement * speed, rb.linearVelocity.y);
-			if (Player.Instance.HasDash)
+			if (GameManager.Instance.HasDash)
 			{
 				Dash();
 			}
@@ -258,18 +258,18 @@ public class PlayerMovement : MonoBehaviour
 		{
 			rb.linearVelocity = new Vector2(-1 * speed, rb.linearVelocity.y);
 		}
-		yield return new WaitUntil(() => GameManager.Instance.LoadedLevel == true);
-		GameManager.Instance.FinishTransition(0.5f);
+		yield return new WaitUntil(() => RoomChangeManager.Instance.LoadedLevel == true);
+		RoomChangeManager.Instance.FinishTransition(0.5f);
 		yield return new WaitUntil(() => Player.Instance.BlockInput == false);
-		GameManager.Instance.LoadedLevel = false;
+		RoomChangeManager.Instance.LoadedLevel = false;
 
 	}
 
 	public IEnumerator TransitionJump()
 	{
 		rb.linearVelocityY = 20f;
-		yield return new WaitUntil(() => GameManager.Instance.LoadedLevel == true);
-		GameManager.Instance.FinishTransition(0.75f);
+		yield return new WaitUntil(() => RoomChangeManager.Instance.LoadedLevel == true);
+		RoomChangeManager.Instance.FinishTransition(0.75f);
 		gravityScale = 1f;
 		if (IsFacingRight)
 		{
@@ -280,15 +280,15 @@ public class PlayerMovement : MonoBehaviour
 			rb.linearVelocity = new Vector2(-1 * speed, TransitionJumpForce);
 		}
 		yield return new WaitUntil(() => Player.Instance.BlockInput == false);
-		GameManager.Instance.LoadedLevel = false;
+		RoomChangeManager.Instance.LoadedLevel = false;
 	}
 	public IEnumerator TransitionFall()
 	{
 		rb.linearVelocityX = 0;
-		yield return new WaitUntil(() => GameManager.Instance.LoadedLevel == true);
+		yield return new WaitUntil(() => RoomChangeManager.Instance.LoadedLevel == true);
 		rb.linearVelocityY = -20f;
-		GameManager.Instance.FinishTransition(0.3f);
+		RoomChangeManager.Instance.FinishTransition(0.3f);
 		yield return new WaitUntil(() => Player.Instance.BlockInput == false);
-		GameManager.Instance.LoadedLevel = false;
+		RoomChangeManager.Instance.LoadedLevel = false;
 	}
 }

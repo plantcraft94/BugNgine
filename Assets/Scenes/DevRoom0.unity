@@ -119,6 +119,52 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &47225894
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 47225896}
+  - component: {fileID: 47225895}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &47225895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 47225894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87a658d52f89b274daad2e51060e4a76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  HasDash: 0
+  HasSword: 0
+--- !u!4 &47225896
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 47225894}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.68793, y: -2.37201, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &235727792
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -847,7 +893,7 @@ GameObject:
   - component: {fileID: 1569077041}
   - component: {fileID: 1569077042}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: RoomChangeManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1331,22 +1377,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6229194567472105509, guid: de2f58379bfd90c41837be507509eab3, type: 3}
-      propertyPath: m_Size.y
-      value: 2.125
-      objectReference: {fileID: 0}
-    - target: {fileID: 6439697178942366773, guid: de2f58379bfd90c41837be507509eab3, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6574172188222110650, guid: de2f58379bfd90c41837be507509eab3, type: 3}
-      propertyPath: jumpForce
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 6574172188222110650, guid: de2f58379bfd90c41837be507509eab3, type: 3}
-      propertyPath: TransitionJumpForce
-      value: 13
-      objectReference: {fileID: 0}
     - target: {fileID: 6670084239895139475, guid: de2f58379bfd90c41837be507509eab3, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1451,3 +1481,4 @@ SceneRoots:
   - {fileID: 1003121778}
   - {fileID: 1569077041}
   - {fileID: 1183298776}
+  - {fileID: 47225896}
