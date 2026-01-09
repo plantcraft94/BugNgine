@@ -35,7 +35,7 @@ public class PlayerLedgeGrab : MonoBehaviour
 		RaycastHit2D hit1 = Physics2D.Raycast(Check1.position, Check1.right, 1f * RayMultiplier, groundLayer);
 		RaycastHit2D hit2 = Physics2D.Raycast(Check2.position, Check2.right, 1f * RayMultiplier, groundLayer);
 
-		if (!hit1 && hit2  && !PM.isGrounded && canGrab)
+		if (!hit1 && hit2  && !PM.isGrounded && canGrab && !Player.Instance.IsAttacking)
 		{
 			isGrab = true;
 			LedgeGrabObject.SetActive(true);

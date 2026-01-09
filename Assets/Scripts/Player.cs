@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 	private static readonly int IsLedgeGrab = Animator.StringToHash("isLedgeGrab");
 	
 	private static readonly int isDashing = Animator.StringToHash("isDashing");
+	private static readonly int isAttacking = Animator.StringToHash("IsAttacking");
 	public static Player Instance{get;set;}
 	public PlayerMovement PM;
 	public PlayerLedgeGrab PLG;
@@ -17,6 +18,8 @@ public class Player : MonoBehaviour
 	public bool test;
 	Animator anim;
 	Rigidbody2D rb;
+	
+	[HideInInspector] public bool IsAttacking;
 	
 	[Header("Animations")]
 	[SerializeField] RuntimeAnimatorController NoSword;
@@ -60,7 +63,33 @@ public class Player : MonoBehaviour
 		anim.SetBool(IsMoving, PM.movement != 0 || (BlockInput && rb.linearVelocity.x != 0));
 		anim.SetBool(IsLedgeGrab, PLG.isGrab);
 		anim.SetBool(isDashing, PM.isDashing);
+		anim.SetBool(isAttacking, IsAttacking);
 	}
+	
+	public void Slash1()
+	{
+		anim.SetTrigger("Slash1");
+	}
+	public void Slash2()
+	{
+		anim.SetTrigger("Slash2");
+	}
+	public void SlashUp()
+	{
+		anim.SetTrigger("SlashUp");
+	}
+	public void SlashDown()
+	{
+		anim.SetTrigger("SlashDown");
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	public void startTransition(bool HorizontalDooor, bool UpDoor)
 	{
 		if (PM.isDashing)

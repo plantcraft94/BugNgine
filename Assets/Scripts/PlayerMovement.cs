@@ -91,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
 				}
 			}
 			rb.linearVelocity = new Vector2(movement * speed, rb.linearVelocity.y);
-			if (GameManager.Instance.HasDash)
+			if (GameManager.Instance.HasDash && !Player.Instance.IsAttacking)
 			{
 				Dash();
 			}
