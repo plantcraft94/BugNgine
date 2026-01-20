@@ -793,7 +793,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6574172188222110650, guid: de2f58379bfd90c41837be507509eab3, type: 3}
   m_PrefabInstance: {fileID: 5913944531265852671}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1191340658}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 27eb966624b949042857d31e0184cd62, type: 3}
@@ -851,34 +851,6 @@ MonoBehaviour:
   _fallYPanTime: 0.35
   _fallSpeedYDampingChangeThreshold: -15
   LerpedFromPlayerFalling: 0
---- !u!1 &1191340658 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6670084239895139475, guid: de2f58379bfd90c41837be507509eab3, type: 3}
-  m_PrefabInstance: {fileID: 5913944531265852671}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1191340666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1191340658}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c20f19118eb70ad488c741c24cbc4568, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
-  AttackAction:
-    m_Name: Attack
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: e327671e-fc37-4d7a-b9f0-27d2181cc106
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
-  ComboTimer: 1
-  Cooldown: 0.1
 --- !u!1 &1319337589
 GameObject:
   m_ObjectHideFlags: 0
@@ -1365,10 +1337,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 160017342205817850, guid: de2f58379bfd90c41837be507509eab3, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: fefd54b55a6b838409059a4ceb86b27b, type: 2}
     - target: {fileID: 746686099065929301, guid: de2f58379bfd90c41837be507509eab3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.21
@@ -1416,10 +1384,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6670084239895139475, guid: de2f58379bfd90c41837be507509eab3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1191340666}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de2f58379bfd90c41837be507509eab3, type: 3}
 --- !u!114 &6703819640336691268
 MonoBehaviour:

@@ -82,6 +82,7 @@ GameObject:
   - component: {fileID: 160017342205817850}
   - component: {fileID: 6200650202313364720}
   - component: {fileID: 6439697178942366773}
+  - component: {fileID: 5885095053594176281}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -255,6 +256,7 @@ MonoBehaviour:
   BlockInput: 0
   CanGoThroughDoors: 1
   test: 0
+  IsAttacking: 0
   NoSword: {fileID: 9100000, guid: e9f679b0bf20d3242bc06192a422f343, type: 2}
   Sword: {fileID: 9100000, guid: fefd54b55a6b838409059a4ceb86b27b, type: 2}
 --- !u!114 &6574172188222110650
@@ -337,7 +339,7 @@ Animator:
   m_GameObject: {fileID: 6670084239895139475}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e9f679b0bf20d3242bc06192a422f343, type: 2}
+  m_Controller: {fileID: 9100000, guid: fefd54b55a6b838409059a4ceb86b27b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -481,6 +483,29 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &5885095053594176281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6670084239895139475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c20f19118eb70ad488c741c24cbc4568, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
+  AttackAction:
+    m_Name: Attack
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: e327671e-fc37-4d7a-b9f0-27d2181cc106
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  ComboTimer: 1
+  Cooldown: 0.1
 --- !u!1 &7807360111637788026
 GameObject:
   m_ObjectHideFlags: 0

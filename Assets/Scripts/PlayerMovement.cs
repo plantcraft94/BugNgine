@@ -66,14 +66,14 @@ public class PlayerMovement : MonoBehaviour
 		CameraFollowObject = GameObject.Find("CameraFollowObject");
 		cameraFollowObject = CameraFollowObject.GetComponent<CameraFollowObject>();
 	}
-    private void Start()
-    {
+	private void Start()
+	{
 		_fallSpeedYDampingChangeThreshold = CameraManager.instance._fallSpeedYDampingChangeThreshold;
-        
-    }
+		
+	}
 
-    // Update is called once per frame
-    void Update()
+	// Update is called once per frame
+	void Update()
 	{
 		isGrounded = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.72f, 0.1f), CapsuleDirection2D.Horizontal, 0, groundLayer);
 		if (isDashing)
@@ -209,6 +209,7 @@ public class PlayerMovement : MonoBehaviour
 
 	void TurnCheck()
 	{
+		if(!Player.Instance.IsAttacking)
 		if (movement > 0 && !IsFacingRight)
 		{
 			Flip();
