@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
 	}
 	public void ObtainSword()
 	{
+		HasSword = true;
 		Player.Instance.SwordAnimation();
 	}
 }

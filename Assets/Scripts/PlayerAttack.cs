@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using PrimeTween;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -29,6 +30,10 @@ public class PlayerAttack : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		if (!GameManager.Instance.HasSword)
+		{
+			return;
+		}
 		ComboTimer -= Time.deltaTime;
 		if(ComboTimer <= 0)
 		{

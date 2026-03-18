@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Door
   - Bound
+  - PlayerSwordHitbox
   layers:
   - Default
   - TransparentFX
@@ -13,8 +14,8 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
-  - 
+  - PlayerSwordHitbox
+  - Player
   - 
   - 
   - 
